@@ -1,2 +1,1 @@
-# greaterportweb
-Greater Portland Roleplay website code
+# no steal all real code no AI used
