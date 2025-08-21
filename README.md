@@ -1,6 +1,6 @@
 # Greater Portland Roleplay Website
 
-[![CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
@@ -15,6 +15,7 @@ The official website for **Greater Portland Roleplay**, a premium Roblox rolepla
 
 - **Responsive Design**: Fully responsive layout optimized for desktop, tablet, and mobile devices
 - **Modern UI/UX**: Clean, professional interface with smooth animations and transitions
+- **Custom 404 Page**: Branded error page with helpful navigation and interactive elements
 - **Department Showcase**: Dedicated pages for each law enforcement and emergency service department
 - **Dynamic Logo Loading**: Automatic fallback system for department logos with emoji alternatives
 - **Performance Optimized**: Fast loading times with optimized assets and efficient code structure
@@ -59,6 +60,7 @@ greaterportweb-main/
 │   ├── msp/
 │   └── mws/
 ├── index.html                # Homepage
+├── 404.html                  # Custom 404 error page
 ├── CNAME                     # GitHub Pages custom domain
 └── README.md                 # Project documentation
 ```
@@ -180,9 +182,14 @@ This project was made possible through the collaborative efforts of:
 
 - **v1.0**: Initial release with full department pages and responsive design
 - **v2.0**: Publishing of the [departments](https://greaterport.org/departments) subpage
-- **v2.1.1**: Fixing of the department pages
-- **v2.1.2**: More fixes
-- **v2.1.3**: ReadME Optimization
+- **v3.0**: Major UI/UX overhaul with improved design system and enhanced department pages (consolidated v2.1.1-v2.1.3 fixes)
+- **v3.1**: Added custom 404 error page with:
+  - Branded design matching site aesthetics
+  - Interactive elements and smooth animations
+  - White accent color scheme with professional styling
+  - Helpful navigation options (Return Home, Go Back, Get Help)
+  - Mobile-responsive design with glass-morphism effects
+  - Consistent navbar and footer matching other pages
 
 ---
 
