@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Maine Warden Service - Greater Portland Roleplay"
+    />
+    <title>Maine Warden Service - Greater Portland Roleplay</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <style>
+      :root {
+        --brand-color: #00004d;
+        --text-light: #ffffff;
+        --accent-green: #63be98;
+        --card-bg: rgba(255, 255, 255, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #000;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 104, 0);
+        padding: 0.8rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(8px);
+      }
+
+      nav img {
+        height: 40px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text-light);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #c4c4ff;
+      }
+
+      /* Main Content */
+      main {
+        padding-top: 120px;
+        min-height: 100vh;
+        background: url("../../assets/bg.png") center/cover no-repeat fixed;
+        position: relative;
+      }
+
+      main::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 77, 0);
+      }
+
+      .container {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .dept-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .dept-logo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--card-bg);
+        border-radius: 50%;
+        backdrop-filter: blur(10px);
+        border: 3px solid var(--accent-green);
+      }
+
+      .dept-logo img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
+
+      .dept-logo.emoji {
+        font-size: 3rem;
+      }
+
+      .dept-header h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--accent-green);
+      }
+
+      .dept-header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .info-card {
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .info-card h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--accent-green);
+      }
+
+      .info-card ul {
+        list-style: none;
+      }
+
+      .info-card li {
+        margin-bottom: 0.5rem;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .info-card li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--accent-green);
+        font-weight: bold;
+      }
+
+      .back-buttons {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      .btn-primary {
+        background: var(--brand-color);
+        color: var(--text-light);
+      }
+
+      .btn-primary:hover {
+        background: #00004d;
+      }
+
+      .btn-secondary {
+        background: var(--accent-green);
+        color: var(--text-light);
+      }
+
+      .btn-secondary:hover {
+        background: #219a52;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .dept-header h1 {
+          font-size: 2.2rem;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .container {
+          padding: 1rem;
+        }
+
+        nav {
+          padding: 0.8rem 1rem;
+        }
+
+        nav ul {
+          gap: 1rem;
+        }
+
+        .back-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <a href="../">
+        <img src="../../assets/logo.svg" alt="Greater Portland Roleplay Logo" />
+      </a>
+      <ul>
+        <li><a href="../">Departments</a></li>
+        <li><a href="https://discord.gg/greaterport">Apply</a></li>
+        <li><a href="https://discord.gg/greaterport">Appeals</a></li>
+        <li>
+          <a
+            href="https://www.roblox.com/communities/737918569/Greater-Portland-Roleplay"
+            >Roblox Group</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <div class="dept-header">
+          <div class="dept-logo emoji" id="dept-logo">🌲</div>
+          <h1>Maine Warden Service</h1>
+          <p>
+            Maine's fish and wildlife law enforcement agency, protecting natural
+            resources and ensuring public safety in outdoor recreational areas.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Wildlife Law Enforcement</h3>
+            <ul>
+              <li>Hunting and fishing violations</li>
+              <li>Wildlife trafficking prevention</li>
+              <li>Poaching investigations</li>
+              <li>Licensing compliance checks</li>
+              <li>Equipment inspections</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>Search and Rescue</h3>
+            <ul>
+              <li>Lost person searches</li>
+              <li>Wilderness rescue operations</li>
+              <li>Water recovery missions</li>
+              <li>Coordination with other agencies</li>
+              <li>Emergency response planning</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>Resource Protection</h3>
+            <ul>
+              <li>State park and forest patrol</li>
+              <li>Habitat preservation</li>
+              <li>Public land management</li>
+              <li>Recreational safety programs</li>
+              <li>Conservation education</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>How to Join</h3>
+            <ul>
+              <li>Apply through our Discord server</li>
+              <li>Complete warden academy training</li>
+              <li>Demonstrate outdoor skills</li>
+              <li>Maintain conservation ethics</li>
+              <li>Serve Maine's natural heritage</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="back-buttons">
+          <a href="../" class="btn btn-secondary">Back to Departments</a>
+          <a href="../../" class="btn btn-primary">Back to Home</a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Load department logo if it exists
+      function loadDepartmentLogo() {
+        const logoElement = document.getElementById("dept-logo");
+        const img = new Image();
+
+        img.onload = function () {
+          logoElement.innerHTML =
+            '<img src="../../assets/logos/mws-logo.png" alt="Maine Warden Service logo">';
+          logoElement.classList.remove("emoji");
+        };
+
+        img.onerror = function () {
+          logoElement.textContent = "🌲";
+        };
+
+        img.src = "../../assets/logos/mws-logo.png";
+      }
+
+      document.addEventListener("DOMContentLoaded", loadDepartmentLogo);
+    </script>
+  </body>
+</html>

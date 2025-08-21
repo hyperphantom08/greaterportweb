@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Greater Portland Roleplay Departments — Law Enforcement, Fire & EMS, and Civilian Operations"
+    />
+    <title>Departments - Greater Portland Roleplay</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <style>
+      :root {
+        --brand-color: #00004d;
+        --text-light: #ffffff;
+        --card-bg: rgba(255, 255, 255, 0.1);
+        --accent-blue: #c2bdb8;
+        --accent-mdmr: #ffffff;
+        --accent-msp: #036fed;
+        --accent-red: #b80017;
+        --accent-civops: #48d0e3;
+        --accent-green: #63be98;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #000;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 104, 0);
+        padding: 0.8rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(8px);
+      }
+
+      nav img {
+        height: 40px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text-light);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #c4c4ff;
+      }
+
+      /* Main Content */
+      main {
+        padding-top: 120px;
+        min-height: 100vh;
+        background: url("../assets/bg.png") center/cover no-repeat fixed;
+        position: relative;
+      }
+
+      main::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 77, 0);
+      }
+
+      .container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .page-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .page-header h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--text-light), #c4c4ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .page-header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      /* Department Grid */
+      .departments-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .department-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+
+      .department-card {
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .department-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--accent-color);
+      }
+
+      .department-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .department-card.law-enforcement::before {
+        background: var(--accent-blue);
+      }
+      .department-card.msp::before {
+        background: var(--accent-msp);
+      }
+
+      .department-card.fire-ems::before {
+        background: var(--accent-red);
+      }
+
+      .department-card.marine::before {
+        background: var(--accent-mdmr);
+      }
+
+      .department-card.warden::before {
+        background: var(--accent-green);
+      }
+
+      .department-card.civilian::before {
+        background: var(--accent-civops);
+      }
+
+      .department-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .department-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: brightness(1.1);
+      }
+
+      .department-icon.emoji {
+        font-size: 2.5rem;
+      }
+
+      .department-card h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--text-light);
+      }
+
+      .department-card p {
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+        line-height: 1.6;
+      }
+
+      .department-route {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-family: "Courier New", monospace;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .department-features {
+        list-style: none;
+        margin-top: auto;
+      }
+
+      .department-features li {
+        margin-bottom: 0.5rem;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .department-features li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-weight: bold;
+      }
+
+      .law-enforcement .department-features li::before {
+        color: var(--accent-blue);
+      }
+      .msp .department-features li::before {
+        color: var(--accent-msp);
+      }
+
+      .fire-ems .department-features li::before {
+        color: var(--accent-red);
+      }
+
+      .marine .department-features li::before {
+        color: var(--accent-mdmr);
+      }
+
+      .warden .department-features li::before {
+        color: var(--accent-green);
+      }
+
+      .civilian .department-features li::before {
+        color: var(--accent-civops);
+      }
+
+      /* Back to Home Button */
+      .back-home {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s ease, color 0.3s ease;
+        background: var(--brand-color);
+        color: var(--text-light);
+      }
+
+      .btn:hover {
+        background: #00004d;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 2.2rem;
+        }
+
+        .departments-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .container {
+          padding: 1rem;
+        }
+
+        nav {
+          padding: 0.8rem 1rem;
+        }
+
+        nav ul {
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <a href="/">
+        <img src="../assets/logo.svg" alt="Greater Portland Roleplay Logo" />
+      </a>
+      <ul>
+        <li><a href="../departments">Departments</a></li>
+        <li><a href="https://discord.gg/greaterport">Apply</a></li>
+        <li><a href="https://discord.gg/greaterport">Appeals</a></li>
+        <li>
+          <a
+            href="https://www.roblox.com/communities/737918569/Greater-Portland-Roleplay"
+            >Roblox Group</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <div class="page-header">
+          <h1>Our Departments</h1>
+          <p>
+            Explore the various law enforcement, emergency services, and
+            civilian operations serving Greater Portland.
+          </p>
+        </div>
+
+        <div class="departments-grid">
+          <!-- Maine State Police -->
+          <a href="msp/" class="department-link">
+            <div class="department-card msp">
+              <div class="department-icon emoji" id="msp-icon">🚔</div>
+              <h3>Maine State Police</h3>
+              <div class="department-route">/departments/msp</div>
+              <p>
+                The Maine State Police serves as the primary state law
+                enforcement agency, providing patrol services, criminal
+                investigations, and specialized units across Maine.
+              </p>
+              <ul class="department-features">
+                <li>Highway patrol and traffic enforcement</li>
+                <li>Criminal investigations division</li>
+                <li>Specialized response teams</li>
+                <li>State-wide jurisdiction</li>
+              </ul>
+            </div>
+          </a>
+
+          <!-- Greater Portland Law Enforcement -->
+          <a href="gple/" class="department-link">
+            <div class="department-card law-enforcement">
+              <div class="department-icon emoji" id="gple-icon">👮</div>
+              <h3>Greater Portland Law Enforcement</h3>
+              <div class="department-route">/departments/gple</div>
+              <p>
+                Local law enforcement serving the Greater Portland metropolitan
+                area with community policing, investigations, and emergency
+                response services.
+              </p>
+              <ul class="department-features">
+                <li>Community policing initiatives</li>
+                <li>Local patrol operations</li>
+                <li>Detective services</li>
+                <li>Traffic enforcement</li>
+              </ul>
+            </div>
+          </a>
+
+          <!-- Greater Portland Fire and EMS -->
+          <a href="gpfems/" class="department-link">
+            <div class="department-card fire-ems">
+              <div class="department-icon emoji" id="gpfems-icon">🚒</div>
+              <h3>Greater Portland Fire and EMS</h3>
+              <div class="department-route">/departments/gpfems</div>
+              <p>
+                Providing comprehensive fire suppression, emergency medical
+                services, and rescue operations throughout the Greater Portland
+                area.
+              </p>
+              <ul class="department-features">
+                <li>Fire suppression and prevention</li>
+                <li>Emergency medical services</li>
+                <li>Technical rescue operations</li>
+                <li>Hazardous materials response</li>
+              </ul>
+            </div>
+          </a>
+
+          <!-- Maine Warden Service -->
+          <a href="mws/" class="department-link">
+            <div class="department-card warden">
+              <div class="department-icon emoji" id="mws-icon">🌲</div>
+              <h3>Maine Warden Service</h3>
+              <div class="department-route">/departments/mws</div>
+              <p>
+                Maine's fish and wildlife law enforcement agency, protecting
+                natural resources and ensuring public safety in outdoor
+                recreational areas.
+              </p>
+              <ul class="department-features">
+                <li>Wildlife law enforcement</li>
+                <li>Search and rescue operations</li>
+                <li>Hunting and fishing regulation</li>
+                <li>Environmental protection</li>
+              </ul>
+            </div>
+          </a>
+
+          <!-- Maine Department of Marine Resources -->
+          <a href="mdmr/" class="department-link">
+            <div class="department-card marine">
+              <div class="department-icon emoji" id="mdmr-icon">⚓</div>
+              <h3>Maine Department of Marine Resources</h3>
+              <div class="department-route">/departments/mdmr</div>
+              <p>
+                Responsible for marine law enforcement, fisheries management,
+                and coastal resource protection along Maine's extensive
+                coastline.
+              </p>
+              <ul class="department-features">
+                <li>Marine patrol and enforcement</li>
+                <li>Fisheries regulation</li>
+                <li>Coastal resource management</li>
+                <li>Boating safety programs</li>
+              </ul>
+            </div>
+          </a>
+
+          <!-- Greater Portland Civilian Operations -->
+          <a href="civops/" class="department-link">
+            <div class="department-card civilian">
+              <div class="department-icon emoji" id="civops-icon">🏢</div>
+              <h3>Greater Portland Civilian Operations</h3>
+              <div class="department-route">/departments/civops</div>
+              <p>
+                Supporting civilian roleplay opportunities including businesses,
+                transportation services, and community organizations within
+                Greater Portland.
+              </p>
+              <ul class="department-features">
+                <li>Business operations</li>
+                <li>Transportation services</li>
+                <li>Community organizations</li>
+                <li>Public works coordination</li>
+              </ul>
+            </div>
+          </a>
+        </div>
+
+        <div class="back-home">
+          <a href="../" class="btn">Back to Home</a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Function to load department logos if they exist
+      function loadDepartmentLogos() {
+        const departments = [
+          { id: "msp-icon", logo: "../assets/logos/msp-logo.png", fallback: "🚔" },
+          {
+            id: "gple-icon",
+            logo: "../assets/logos/gple-logo.png",
+            fallback: "👮",
+          },
+          {
+            id: "gpfems-icon",
+            logo: "../assets/logos/gpfems-logo.png",
+            fallback: "🚒",
+          },
+          { id: "mws-icon", logo: "../assets/logos/mws-logo.png", fallback: "🌲" },
+          {
+            id: "mdmr-icon",
+            logo: "../assets/logos/mdmr-logo.png",
+            fallback: "⚓",
+          },
+          {
+            id: "civops-icon",
+            logo: "../assets/logos/civops-logo.png",
+            fallback: "🏢",
+          },
+        ];
+
+        departments.forEach((dept) => {
+          const iconElement = document.getElementById(dept.id);
+          const img = new Image();
+
+          img.onload = function () {
+            // Logo exists, replace emoji with image
+            iconElement.innerHTML = `<img src="${dept.logo}" alt="${dept.id} logo">`;
+            iconElement.classList.remove("emoji");
+          };
+
+          img.onerror = function () {
+            // Logo doesn't exist, keep emoji
+            iconElement.textContent = dept.fallback;
+          };
+
+          // Try to load the logo
+          img.src = dept.logo;
+        });
+      }
+
+      // Load logos when page loads
+      document.addEventListener("DOMContentLoaded", loadDepartmentLogos);
+    </script>
+  </body>
+</html>
