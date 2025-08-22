@@ -190,6 +190,8 @@ This project was made possible through the collaborative efforts of:
   - Helpful navigation options (Return Home, Go Back, Get Help)
   - Mobile-responsive design with glass-morphism effects
   - Consistent navbar and footer matching other pages
+- **v3.1.2**: Bug fixes and asset path corrections for hosted environments
+- **v3.1.3**: Updated Maine Department of Marine Resources Discord invite link
 
 ---
 
