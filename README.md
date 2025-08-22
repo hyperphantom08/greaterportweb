@@ -192,6 +192,8 @@ This project was made possible through the collaborative efforts of:
   - Consistent navbar and footer matching other pages
 - **v3.1.2**: Bug fixes and asset path corrections for hosted environments
 - **v3.1.3**: Updated Maine Department of Marine Resources Discord invite link
+- **v3.1.4**: Updated Maine Warden Service Discord invite link
+- **v3.1.4.1**: Fixed Maine Warden Service logo
 
 ---
 
